@@ -1,0 +1,6 @@
+---
+team: devops-preprod
+foundation: nttwtcdev
+iaas: vsphere
+lock_pool_name: pcfwtcdev
+concourse_user: devopspreprod

@@ -1,0 +1,9 @@
+---
+gateway: 10.216.110.129
+network_name: 010.216.110.128-VLAN031
+opsman_netmask: 255.255.255.128
+opsman_vm_name: dev-opsman
+vsphere_datacenter: WTC03-CF
+vsphere_datastore: PCF-WTC-AZ01-002-C8K0982
+vsphere_folder: pcf_qa_vms
+vsphere_resource_pool: /WTC03-CF/host/WTC01-PCF-AZ01/Resources/WTC01-DEV-AZ01
