@@ -1,6 +1,6 @@
 ---
-team: devops-preprod
-foundation: nttwtcdev
+team: main
+foundation: sbx
 iaas: vsphere
-lock_pool_name: pcfwtcdev
-concourse_user: devopspreprod
+lock_pool_name: vsphere-sbx
+concourse_user: admin

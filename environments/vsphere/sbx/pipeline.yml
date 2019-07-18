@@ -38,16 +38,16 @@ resources:
     uri: https://github.com/tonyelmore/telmore.git
     username: ((github_username))
 
-- name: configuration
-  type: git
-  source:
-    branch: master
-    password: ((github_token))
-    uri: https://github.com/tonyelmore/telmore.git
-    username: ((github_username))
-    paths:
-    - "environments/((iaas))/((foundation))/pipeline.yml"
-    - "environments/((iaas))/((foundation))/config"
+# - name: configuration
+#   type: git
+#   source:
+#     branch: master
+#     password: ((github_token))
+#     uri: https://github.com/tonyelmore/telmore.git
+#     username: ((github_username))
+#     paths:
+#     - "environments/((iaas))/((foundation))/pipeline.yml"
+#     - "environments/((iaas))/((foundation))/config"
 
 - name: director-configuration
   type: git
@@ -69,15 +69,15 @@ resources:
     pool: ((lock_pool_name))
     retry_delay: 1m
 
-- name: fly
-  type: concourse-pipeline
-  source:
-    target: https://plane.haas-244.pez.pivotal.io/
-    insecure: "true"
-    teams:
-    - name: ((team))
-      username: ((concourse_user))
-      password: ((concourse_password))
+# - name: fly
+#   type: concourse-pipeline
+#   source:
+#     target: https://plane.haas-244.pez.pivotal.io/
+#     insecure: "true"
+#     teams:
+#     - name: ((team))
+#       username: ((concourse_user))
+#       password: ((concourse_password))
 
 jobs:
 - name: force-unlock
@@ -335,23 +335,23 @@ jobs:
     params:
       release: lock
 
-- name: deploy-latest-pipeline
-  plan:
-  - get: configuration
-    trigger: true
-    passed:
-    - unlock-tile
-  - put: fly
-    params: &fly_params
-      pipelines:
-      - name: new-platform-automation
-        team: ((team))
-        config_file: configuration/environments/((iaas))/((foundation))/pipeline.yml
-        vars_files:
-        - configuration/environments/((iaas))/((foundation))/pipeline-params.yml
+# - name: deploy-latest-pipeline
+#   plan:
+#   - get: configuration
+#     trigger: true
+#     passed:
+#     - unlock-tile
+#   - put: fly
+#     params: &fly_params
+#       pipelines:
+#       - name: new-platform-automation
+#         team: ((team))
+#         config_file: configuration/environments/((iaas))/((foundation))/pipeline.yml
+#         vars_files:
+#         - configuration/environments/((iaas))/((foundation))/pipeline-params.yml
 
-- name: force-deploy-latest-pipeline
-  plan:
-  - get: configuration
-  - put: fly
-    params: *fly_params
+# - name: force-deploy-latest-pipeline
+#   plan:
+#   - get: configuration
+#   - put: fly
+#     params: *fly_params
