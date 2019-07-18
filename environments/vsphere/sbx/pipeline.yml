@@ -27,7 +27,7 @@ resources:
   type: gcs-resource
   source:
     bucket: telmore-vsphere-opsman-exports
-    json_key: ((opsman_backups_cloud_storage_key))
+    json_key: ((opsman_export_cloud_storage_key))
     regexp: ((foundation))/installation-(.*).zip
 
 - name: state
@@ -35,7 +35,7 @@ resources:
   source:
     branch: master
     password: ((github_token))
-    uri: https://github.com/corelogic/devops-gcp-pcf-pipelines.git
+    uri: https://github.com/tonyelmore/telmore.git
     username: ((github_username))
 
 - name: configuration
@@ -43,7 +43,7 @@ resources:
   source:
     branch: master
     password: ((github_token))
-    uri: https://github.com/corelogic/devops-gcp-pcf-pipelines.git
+    uri: https://github.com/tonyelmore/telmore.git
     username: ((github_username))
     paths:
     - "environments/((iaas))/((foundation))/pipeline.yml"
@@ -54,7 +54,7 @@ resources:
   source:
     branch: master
     password: ((github_token))
-    uri: https://github.com/corelogic/devops-gcp-pcf-pipelines.git
+    uri: https://github.com/tonyelmore/telmore.git
     username: ((github_username))
     paths:
     - "environments/((iaas))/((foundation))/config-director"
@@ -62,7 +62,7 @@ resources:
 - name: lock
   type: pool
   source:
-    uri: https://github.com/corelogic/pcf-deployment-locks.git
+    uri: https://github.com/tonyelmore/telmore.git
     branch: master
     username: ((github_username))
     password: ((github_token))
@@ -72,7 +72,7 @@ resources:
 - name: fly
   type: concourse-pipeline
   source:
-    target: https://10.216.44.66/
+    target: https://plane.haas-244.pez.pivotal.io/
     insecure: "true"
     teams:
     - name: ((team))
@@ -118,9 +118,9 @@ jobs:
     image: platform-automation-image
     file: director-configuration/ci/tasks-proposed/credhub-interpolate.yml
     params: &director_credhub_interpolate_params
-      CREDHUB_SERVER: https://10.216.44.66:8844
+      CREDHUB_SERVER: https://credhub.haas-244.pez.pivotal.io:8844
       CREDHUB_CA_CERT: ((concourse_credhub_ca))
-      CREDHUB_CLIENT: concourse_to_credhub
+      CREDHUB_CLIENT: ((concourse_credhub_client_username))
       CREDHUB_SECRET: ((concourse_credhub_client_secret))
       PREFIX: '/concourse/((team))'
       INTERPOLATION_PATHS: "environments/((iaas))/((foundation))/config-director/secrets"
@@ -185,7 +185,7 @@ jobs:
           params:
             FILE_SOURCE_PATH: state.yml
             FILE_DESTINATION_PATH: environments/((iaas))/((foundation))/state/state.yml
-            GIT_AUTHOR_EMAIL: "corelogic_pipeline_robot@corelogic.com"
+            GIT_AUTHOR_EMAIL: "aelmore@pivotal.io"
             GIT_AUTHOR_NAME: "Platform Automation"
             COMMIT_MESSAGE: 'Update state file'
         - put: state
@@ -334,47 +334,6 @@ jobs:
   - put: lock
     params:
       release: lock
-
-
-- name: lock-tiles
-  serial: true
-  plan:
-  - aggregate:
-    - put: lock
-      params: {acquire: true}
-    - get: configuration
-      trigger: true
-
-- name: validate-tile-configuration
-  plan:
-  - aggregate:
-    - get: configuration
-      trigger: true
-      passed: ["lock-tiles"]
-    - get: platform-automation-image
-      resource: platform-automation
-      params:
-        unpack: true
-        globs: ["*image*"]
-    - get: platform-automation-tasks
-      resource: platform-automation
-      params:
-        unpack: true
-        globs: ["*tasks*"]
-
-  - task: credhub-interpolate
-    image: platform-automation-image
-    file: configuration/ci/tasks-proposed/credhub-interpolate.yml
-    params: &credhub_interpolate_params
-      CREDHUB_SERVER: https://10.216.44.66:8844
-      CREDHUB_CA_CERT: ((concourse_credhub_ca))
-      CREDHUB_CLIENT: concourse_to_credhub
-      CREDHUB_SECRET: ((concourse_credhub_client_secret))
-      PREFIX: '/concourse/((team))'
-      INTERPOLATION_PATHS: "environments/((iaas))/((foundation))/config/secrets"
-    input_mapping:
-      files: configuration
-
 
 - name: deploy-latest-pipeline
   plan:

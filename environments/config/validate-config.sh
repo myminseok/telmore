@@ -1,6 +1,6 @@
 #!/bin/bash -e
 if [ ! $# -eq 2 ]; then
-  echo "Must supply product name as arg and environment"
+  echo "Must supply product name and environment as arguments"
   exit 1
 fi
 

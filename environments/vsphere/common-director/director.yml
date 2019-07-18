@@ -1,13 +1,18 @@
 ---
-infra_network_name: infra-network
-app_network_name: app-network
-service_network_name: service-network
-iso_seg_network_name: pci-network
+infra_network_name: PAS-Infrastructure
+deployment_network_name: PAS-Deployment
+service_network_name: PAS-Services
 
 ssl_verification_enabled: false
-nsx_networking_enabled: false
+nsx_networking_enabled: true
+nsx_address: nsxmgr-01.haas-244.pez.pivotal.io
+nsx_mode: nsx-t
+nsx_networking_enabled: true
+
+
 blobstore_type: local
 bosh_recreate_on_next_deploy: false
+bosh_recreate_persistent_disks_on_next_deploy: false
 custom_ssh_banner:
 database_type: internal
 director_hostname:
@@ -15,7 +20,7 @@ director_worker_count: 5
 disable_dns_release: false
 identification_tags: {}
 keep_unreachable_vms: false
-local_blobstore_tls_enabled: false
+local_blobstore_tls_enabled: true
 max_threads:
 metrics_ip:
 
@@ -33,5 +38,5 @@ syslog_enabled: false
 #resource configuration
 compilation_instances: automatic
 compilation_instance_type: automatic
-director_disk_size_mb: "204800"
-director_instance_type: 2xlarge
+director_disk_size_mb: automatic
+director_instance_type: automatic

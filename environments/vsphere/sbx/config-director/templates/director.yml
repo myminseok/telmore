@@ -13,10 +13,16 @@ properties-configuration:
     bosh_disk_path: ((bosh_disk_path))
     ssl_verification_enabled: ((ssl_verification_enabled))
     nsx_networking_enabled: ((nsx_networking_enabled))
+    nsx_address: ((nsx_address))
+    nsx_ca_certificate: ((nsx_ca_certificate))
+    nsx_mode: ((nsx_mode))
+    nsx_networking_enabled: ((iaas-configurations_0_nsx_networking_enabled))
+    nsx_username: ((iaas-configurations_0_nsx_username))
   director_configuration:
     allow_legacy_agents: true
     blobstore_type: ((blobstore_type))
     bosh_recreate_on_next_deploy: ((bosh_recreate_on_next_deploy))
+    bosh_recreate_persistent_disks_on_next_deploy: ((bosh_recreate_persistent_disks_on_next_deploy))
     custom_ssh_banner: ((custom_ssh_banner))
     database_type: ((database_type))
     director_hostname: ((director_hostname))
@@ -25,6 +31,11 @@ properties-configuration:
     encryption:
       keys: []
       providers: []
+    excluded_recursors: []
+    hm_emailer_options:
+      enabled: false
+    hm_pager_duty_options:
+      enabled: false
     identification_tags: ((identification_tags))
     keep_unreachable_vms: ((keep_unreachable_vms))
     local_blobstore_options:
@@ -36,6 +47,7 @@ properties-configuration:
     post_deploy_enabled: ((post_deploy_enabled))
     resurrector_enabled: ((resurrector_enabled))
     retry_bosh_deploys: ((retry_bosh_deploys))
+    skip_director_drain: true
   security_configuration:
     trusted_certificates: ((trusted_certificates))
     generate_vm_passwords: ((generate_vm_passwords))
@@ -46,14 +58,6 @@ az-configuration:
     clusters:
     - cluster: ((az1_cluster))
       resource_pool: ((az1_resource_pool))
-  - name: ((az2_name))
-    clusters:
-    - cluster: ((az2_cluster))
-      resource_pool: ((az2_resource_pool))
-  - name: ((az3_name))
-    clusters:
-    - cluster: ((az3_cluster))
-      resource_pool: ((az3_resource_pool))
 networks-configuration:
   icmp_checks_enabled: ((icmp_checks_enabled))
   networks:
@@ -66,15 +70,13 @@ networks-configuration:
       dns: ((infra_network_dns))
       availability_zone_names: &1
       - ((az1_name))
-      - ((az2_name))
-      - ((az3_name))
-  - name: ((app_network_name))
+  - name: ((deployment_network_name))
     subnets:
-    - iaas_identifier: ((app_network_vsphere_name))
-      cidr: ((app_network_cidr))
-      reserved_ip_ranges: ((app_network_reserved_ip_range))
-      gateway: ((app_network_gateway))
-      dns: ((app_network_dns))
+    - iaas_identifier: ((deployment_network_vsphere_name))
+      cidr: ((deployment_network_cidr))
+      reserved_ip_ranges: ((deployment_network_reserved_ip_range))
+      gateway: ((deployment_network_gateway))
+      dns: ((deployment_network_dns))
       availability_zone_names: *1
   - name: ((service_network_name))
     subnets:
@@ -83,14 +85,6 @@ networks-configuration:
       reserved_ip_ranges: ((service_network_reserved_ip_range))
       gateway: ((service_network_gateway))
       dns: ((service_network_dns))
-      availability_zone_names: *1
-  - name: ((iso_seg_network_name))
-    subnets:
-    - iaas_identifier: ((iso_seg_network_vsphere_name))
-      cidr: ((iso_seg_network_cidr))
-      reserved_ip_ranges: ((iso_seg_network_reserved_ip_range))
-      gateway: ((iso_seg_network_gateway))
-      dns: ((iso_seg_network_dns))
       availability_zone_names: *1
 network-assignment:
   network:
@@ -109,3 +103,25 @@ resource-configuration:
       size_mb: ((director_disk_size_mb))
     instance_type:
       id: ((director_instance_type))
+vmextensions-configuration:
+- name: pas_ssh_vm_extension
+  cloud_properties:
+    nsxt:
+      lb:
+        server_pools:
+        - name: pas-ssh-pool
+- name: pas_tcp_vm_extension
+  cloud_properties:
+    nsxt:
+      lb:
+        server_pools:
+        - name: pas-tcp-pool
+- name: http_https_lb
+  cloud_properties:
+    nsxt:
+      lb:
+        server_pools:
+        - name: PAS-GoRouter443ServerPool
+          port: 443
+        - name: PAS-GoRouter80ServerPool
+          port: 80
