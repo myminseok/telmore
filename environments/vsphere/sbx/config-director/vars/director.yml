@@ -1,8 +1,8 @@
 # iaas_configuration:
 iaas_configuration_name: default
 datacenter: Datacenter
-ephemeral_datastores_string: LUN-01
-persistent_datastores_string: LUN-01
+ephemeral_datastores_string: LUN01
+persistent_datastores_string: LUN01
 bosh_vm_folder: pcf_vms
 bosh_template_folder: pcf_templates
 bosh_disk_path: pcf_disks
