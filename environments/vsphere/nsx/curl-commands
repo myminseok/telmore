@@ -3,10 +3,10 @@ om curl -p /api/v0/staged/products/cf-236a2c7b8be84769bc7d/jobs/router-f6373a5e8
 om curl -p /api/v0/staged/products/cf-236a2c7b8be84769bc7d/jobs/tcp_router-a79a05793f508236a984/resource_config
 om curl -p /api/v0/staged/products/cf-236a2c7b8be84769bc7d/jobs/diego_brain-73009cabdec8e6187b36/resource_config
 
-# To add additional_vm_extensions for the job (watch the instances?)
-om curl -p /api/v0/staged/products/cf-236a2c7b8be84769bc7d/jobs/router-f6373a5e89fe905512bf/resource_config -x PUT -d '{"instance_type": {"id": "automatic"}, "instances": 2, "additional_vm_extensions": ["pas_web_vm_extension"]}'
+# To add additional_vm_extensions for the job (watch the instances?) - These are for single extension
+om curl -p /api/v0/staged/products/cf-236a2c7b8be84769bc7d/jobs/router-f6373a5e89fe905512bf/resource_config -x PUT -d '{"instance_type": {"id": "automatic"}, "instances": 2, "additional_vm_extensions": ["http_https_lb"]}'
 
-om curl -p /api/v0/staged/products/cf-236a2c7b8be84769bc7d/jobs/diego_brain-73009cabdec8e6187b36/resource_config -x PUT -d '{"instance_type": {"id": "automatic"}, "instances": 1, "additional_vm_extensions": ["pas_ssh_vm_extension"]}'
+om curl -p /api/v0/staged/products/cf-236a2c7b8be84769bc7d/jobs/diego_brain-73009cabdec8e6187b36/resource_config -x PUT -d '{"instance_type": {"id": "automatic"}, "instances": 1, "additional_vm_extensions": ["http_https_lb"]}'
 
 om curl -p /api/v0/staged/products/cf-236a2c7b8be84769bc7d/jobs/tcp_router-a79a05793f508236a984/resource_config -x PUT -d '{"instance_type": {"id": "automatic"}, "instances": "automatic", "persistent_disk": {"size_mb": "automatic"}, "additional_vm_extensions": ["http_https_lb"]}'
 
@@ -28,4 +28,11 @@ om curl -p /api/v0/staged/products
 om curl -p /api/v0/staged/products/PRODUCT_GUID/jobs
 
 
+
+@ To add additional_vm_extensions for the job (watch the instances?) - These are for different extensions
+om curl -p /api/v0/staged/products/cf-236a2c7b8be84769bc7d/jobs/router-f6373a5e89fe905512bf/resource_config -x PUT -d '{"instance_type": {"id": "automatic"}, "instances": 2, "additional_vm_extensions": ["pas_web_vm_extension"]}'
+
+om curl -p /api/v0/staged/products/cf-236a2c7b8be84769bc7d/jobs/diego_brain-73009cabdec8e6187b36/resource_config -x PUT -d '{"instance_type": {"id": "automatic"}, "instances": 1, "additional_vm_extensions": ["pas_ssh_vm_extension"]}'
+ 
+om curl -p /api/v0/staged/products/cf-236a2c7b8be84769bc7d/jobs/tcp_router-a79a05793f508236a984/resource_config -x PUT -d '{"instance_type": {"id": "automatic"}, "instances": "automatic", "persistent_disk": {"size_mb": "automatic"}, "additional_vm_extensions": ["pas_tcp_vm_extension"]}'
 
