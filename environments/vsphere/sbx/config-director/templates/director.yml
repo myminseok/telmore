@@ -16,8 +16,8 @@ properties-configuration:
     nsx_address: ((nsx_address))
     nsx_ca_certificate: ((nsx_ca_certificate))
     nsx_mode: ((nsx_mode))
-    nsx_networking_enabled: ((iaas-configurations_0_nsx_networking_enabled))
-    nsx_username: ((iaas-configurations_0_nsx_username))
+    nsx_networking_enabled: ((nsx_networking_enabled))
+    nsx_username: ((nsx_username))
   director_configuration:
     allow_legacy_agents: true
     blobstore_type: ((blobstore_type))
