@@ -5,7 +5,7 @@ ephemeral_datastores_string: LUN01
 persistent_datastores_string: LUN01
 bosh_vm_folder: pcf_vms
 bosh_template_folder: pcf_templates
-bosh_disk_path: pcf_disks
+bosh_disk_path: pcf_disk
 
 # director_configuration:
 ntp_servers_string: time.svc.pivotal.io
