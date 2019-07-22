@@ -7,6 +7,6 @@ router/static_ips: 192.168.2.11,192.168.2.12
 diego_brain/static_ips: 192.168.2.13
 tcp_router/static_ips: 192.168.2.14
 
-diego_brain/instances: 1
-ha_proxy/instances: 0
-router/instances: 2
+diego_brain_instances: 1
+ha_proxy_instances: 0
+router_instances: 2
