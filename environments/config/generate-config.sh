@@ -17,7 +17,7 @@ fi
 INITIAL_FOUNDATION=$(bosh interpolate ${configfile} --path /initial-foundation)
 
 echo "Generating configuration for product $product"
-versionfile="../${iaas}/${INITIAL_FOUNDATION}/versions/$product.yml"
+versionfile="../${iaas}/${INITIAL_FOUNDATION}/config/versions/$product.yml"
 if [ ! -f ${versionfile} ]; then
   echo "Must create ${versionfile}"
   exit 1

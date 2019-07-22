@@ -243,7 +243,10 @@ product-properties:
   .properties.system_database:
     value: internal_pxc
   .properties.tcp_routing:
-    value: disable
+    selected_option: enable
+    value: enable
+  .properties.tcp_routing.enable.reservable_ports:
+    value: ((tcp_routing/enable/reservable_ports))
   .properties.uaa:
     value: internal
   .properties.uaa.internal.password_expires_after_months:
