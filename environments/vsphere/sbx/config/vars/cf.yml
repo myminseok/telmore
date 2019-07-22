@@ -2,3 +2,11 @@ cloud_controller/apps_domain: cfapps.haas-244.pez.pivotal.io
 cloud_controller/system_domain: run.haas-244.pez.pivotal.io
 singleton_availability_zone: pas-az1
 tcp_routing/enable/reservable_ports: 10000-10005
+
+router/static_ips: 192.168.2.11,192.168.2.12
+diego_brain/static_ips: 192.168.2.13
+tcp_router/static_ips: 192.168.2.14
+
+diego_brain/instances: 1
+ha_proxy/instances: 0
+router/instances: 2
