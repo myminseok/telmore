@@ -1,0 +1,3 @@
+security_acknowledgement: X
+network_name: PAS-Deployment
+mysql_monitor/recipient_email: telmore@pivotal.io

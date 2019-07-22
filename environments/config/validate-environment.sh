@@ -1,16 +1,21 @@
 #!/bin/bash -e
-if [ ! $# -eq 1 ]; then
-  echo "Must supply environment"
+if [ ! $# -eq 2 ]; then
+  echo "Must supply iaas and environment name as arg"
   exit 1
 fi
 
-environment=$1
+iaas=$1
+environment=$2
+
 echo "Validating ${environment}"
 source ./common.sh
 
-./validate-opsman-config.sh ${environment}
+./validate-opsman-config.sh ${iaas} ${environment}
+
 for product in ${products[@]}; do
-  ./validate-config.sh ${product} ${environment}
+  ./validate-config.sh ${iaas} ${environment} ${product} 
 done
 
-./validate-config.sh clamav ${environment}
+for runtime-product in ${runtime-products[@]}; do
+  ./validate-config.sh ${iaas} ${environment} ${runtime-product} 
+done

@@ -1,7 +1,6 @@
 #!/bin/bash -e
 : ${PIVNET_TOKEN?"Need to set PIVNET_TOKEN"}
 
-INITIAL_FOUNDATION=nttwtcdev
 if [ ! $# -eq 2 ]; then
   echo "Must supply iaas and product name as arg"
   exit 1
@@ -9,6 +8,13 @@ fi
 
 iaas=$1
 product=$2
+
+configfile="config.yml"
+if [ ! -f ${configfile} ]; then
+  echo "Must create ${configfile} and specify initial-foundation" 
+  exit 1
+fi
+INITIAL_FOUNDATION=$(bosh interpolate ${configfile} --path /initial-foundation)
 
 echo "Generating configuration for product $product"
 versionfile="../${iaas}/${INITIAL_FOUNDATION}/versions/$product.yml"
@@ -29,6 +35,7 @@ if [ ! -f ${wrkdir}/product.yml ]; then
   exit 1
 fi
 
+mkdir -p ../${iaas}/opsfiles
 ops_files="../${iaas}/opsfiles/${product}-operations"
 touch ${ops_files}
 
@@ -37,6 +44,8 @@ while IFS= read -r var
 do
   ops_files_args+=("-o ${wrkdir}/${var}")
 done < "$ops_files"
+
+mkdir -p ../${iaas}/${INITIAL_FOUNDATION}/config/templates
 bosh int ${wrkdir}/product.yml ${ops_files_args[@]} > ../${iaas}/${INITIAL_FOUNDATION}/config/templates/${product}.yml
 
 mkdir -p ../${iaas}/${INITIAL_FOUNDATION}/config/defaults
@@ -52,4 +61,11 @@ if [ -f ${wrkdir}/resource-vars.yml ]; then
   cat ${wrkdir}/resource-vars.yml >> ../${iaas}/${INITIAL_FOUNDATION}/config/defaults/${product}.yml
 fi
 
+mkdir -p ../${iaas}/${INITIAL_FOUNDATION}/config/secrets
 touch ../${iaas}/${INITIAL_FOUNDATION}/config/secrets/${product}.yml
+
+mkdir -p ../${iaas}/${INITIAL_FOUNDATION}/config/vars
+touch ../${iaas}/${INITIAL_FOUNDATION}/config/vars/${product}.yml
+
+mkdir -p ../${iaas}/common
+touch ../${iaas}/common/${product}.yml
