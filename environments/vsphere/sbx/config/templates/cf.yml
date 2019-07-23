@@ -107,17 +107,8 @@ product-properties:
   .properties.cloud_controller_default_stack:
     value: default
   .properties.container_networking_interface_plugin:
-    value: silk
-  .properties.container_networking_interface_plugin.silk.enable_log_traffic:
-    value: ((container_networking_interface_plugin/silk/enable_log_traffic))
-  .properties.container_networking_interface_plugin.silk.iptables_accepted_udp_logs_per_sec:
-    value: ((container_networking_interface_plugin/silk/iptables_accepted_udp_logs_per_sec))
-  .properties.container_networking_interface_plugin.silk.iptables_denied_logs_per_sec:
-    value: ((container_networking_interface_plugin/silk/iptables_denied_logs_per_sec))
-  .properties.container_networking_interface_plugin.silk.network_mtu:
-    value: ((container_networking_interface_plugin/silk/network_mtu))
-  .properties.container_networking_interface_plugin.silk.vtep_port:
-    value: ((container_networking_interface_plugin/silk/vtep_port))
+    selected_option: external
+    value: external
   .properties.credhub_database:
     value: internal_mysql
   .properties.credhub_hsm_provider_client_certificate:
