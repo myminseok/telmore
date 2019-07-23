@@ -10,3 +10,5 @@ tcp_router/static_ips: 192.168.2.14
 diego_brain_instances: 1
 ha_proxy_instances: 0
 router_instances: 2
+
+ha_proxy/skip_cert_verify: true
