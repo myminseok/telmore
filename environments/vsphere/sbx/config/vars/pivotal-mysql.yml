@@ -1,0 +1,5 @@
+---
+service_network_name: PAS-Services
+plan1_selector/active/az_multi_select: pas-az1
+plan2_selector/active/az_multi_select: pas-az1
+plan3_selector/active/az_multi_select: pas-az1

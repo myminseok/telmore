@@ -1,0 +1,8 @@
+---
+network_name: PAS-Deployment
+service_network_name: PAS-Services
+
+healthwatch-forwarder_instance_type: micro.ram
+
+push-apps_post_deploy_state: off
+smoke-tests_post_deploy_state: off
