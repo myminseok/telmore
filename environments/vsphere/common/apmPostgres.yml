@@ -1,5 +1,5 @@
 ---
-network_name: Deployment
+network_name: PAS-Deployment
 singleton_availability_zone: pas-az1
 
 delete-prior-space_post_deploy_state: off
