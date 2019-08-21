@@ -366,7 +366,7 @@ jobs:
 
   - task: credhub-interpolate
     image: platform-automation-image
-    file: configuration/ci/tasks-proposed/credhub-interpolate.yml
+    file: platform-automation-tasks/tasks/credhub-interpolate.yml
     params: &credhub_interpolate_params
       CREDHUB_SERVER: https://credhub.haas-244.pez.pivotal.io:8844
       CREDHUB_CA_CERT: ((concourse_credhub_ca))
