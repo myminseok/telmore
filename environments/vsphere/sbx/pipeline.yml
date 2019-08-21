@@ -1529,6 +1529,7 @@ jobs:
     - "p-rabbitmq-errands"
     - "Pivotal_Single_Sign-On_Service-errands"
     - "apmPostgres-errands"
+    - "credhub-service-broker-errands"
   - get: lock
   - put: lock
     params:
