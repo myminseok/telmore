@@ -116,7 +116,7 @@ jobs:
 
   - task: credhub-interpolate
     image: platform-automation-image
-    file: director-configuration/ci/tasks-proposed/credhub-interpolate.yml
+    file: platform-automation-tasks/tasks/credhub-interpolate.yml
     params: &director_credhub_interpolate_params
       CREDHUB_SERVER: https://credhub.haas-244.pez.pivotal.io:8844
       CREDHUB_CA_CERT: ((concourse_credhub_ca))
@@ -147,14 +147,14 @@ jobs:
 
   - task: credhub-interpolate
     image: platform-automation-image
-    file: director-configuration/ci/tasks-proposed/credhub-interpolate.yml
+    file: platform-automation-tasks/tasks/credhub-interpolate.yml
     params: *director_credhub_interpolate_params
     input_mapping:
       files: director-configuration
 
   - task: download-create-opsman
     image: platform-automation-image
-    file: director-configuration/ci/tasks-proposed/download-create-opsman.yml
+    file: platform-automation-tasks/tasks/download-create-opsman.yml
     input_mapping:
       download-config: director-configuration
       state: state
@@ -176,7 +176,7 @@ jobs:
       do:
         - task: make-commit
           image: platform-automation-image
-          file: director-configuration/ci/tasks-proposed/make-commit.yml
+          file: platform-automation-tasks/tasks/make-commit.yml
           input_mapping:
             repository: state
             file-source: generated-state
@@ -248,7 +248,7 @@ jobs:
 
   - task: credhub-interpolate
     image: platform-automation-image
-    file: director-configuration/ci/tasks-proposed/credhub-interpolate.yml
+    file: platform-automation-tasks/tasks/credhub-interpolate.yml
     params: *director_credhub_interpolate_params
     input_mapping:
       files: director-configuration
@@ -286,14 +286,14 @@ jobs:
 
   - task: credhub-interpolate
     image: platform-automation-image
-    file: director-configuration/ci/tasks-proposed/credhub-interpolate.yml
+    file: platform-automation-tasks/tasks/credhub-interpolate.yml
     params: *director_credhub_interpolate_params
     input_mapping:
       files: director-configuration
 
   - task: download-upgrade-opsman
     image: platform-automation-image
-    file: director-configuration/ci/tasks-proposed/download-upgrade-opsman.yml
+    file: platform-automation-tasks/tasks/download-upgrade-opsman.yml
     input_mapping:
       download-config: director-configuration
       state: state
