@@ -5,4 +5,4 @@ plan2_selector/single_node/az_multi_select: ["pas-az1"]
 plan3_selector/single_node/az_multi_select: ["pas-az1"]
 
 global_recipient_email: test@me.com
-deprecated_bindings_string: Deprecated
+deprecated_bindings_string: X
