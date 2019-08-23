@@ -1416,7 +1416,7 @@ jobs:
     - aggregate:
         - get: configuration
           trigger: true
-          passed: [ Pivotal_Single_Sign-On_Service ]
+          passed: [ apmPostgres ]
         - get: platform-automation-image
           resource: platform-automation
           params:
