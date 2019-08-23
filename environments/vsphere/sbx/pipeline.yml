@@ -14,7 +14,7 @@ resource_types:
   type: docker-image
   source:
     repository: concourse/concourse-pipeline-resource
-    tag: 2.0.1
+    tag: 1.2.0
 
 resources:
 - name: platform-automation
