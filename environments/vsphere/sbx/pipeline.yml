@@ -176,7 +176,7 @@ jobs:
       do:
         - task: make-git-commit
           image: platform-automation-image
-          file: director-configuration/ci/tasks-proposed/make-commit.yml
+          file: director-configuration/ci/tasks-proposed/z_make-commit.yml
           input_mapping:
             repository: state
             file-source: generated-state
