@@ -129,7 +129,7 @@ product-properties:
   .properties.enable_log_cache:
     value: ((enable_log_cache))
   .properties.garden_disk_cleanup:
-    value: threshold
+    value: ((garden_disk_cleanup))
   .properties.gorouter_ssl_ciphers:
     value: ((gorouter_ssl_ciphers))
   .properties.haproxy_client_cert_validation:

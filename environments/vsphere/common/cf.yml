@@ -1,6 +1,7 @@
 security_acknowledgement: X
 network_name: PAS-Deployment
 mysql_monitor/recipient_email: telmore@pivotal.io
+garden_disk_cleanup: reserved
 
 # turn off errands
 smoke_tests_post_deploy_state: false
