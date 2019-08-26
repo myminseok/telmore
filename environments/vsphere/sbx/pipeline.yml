@@ -1513,7 +1513,7 @@ jobs:
         CONFIG_FILE: environments/((iaas))/((foundation))/config/templates/credhub-service-broker.yml
         ERRAND_NAME: deploy-all
         ENV_FILE: environments/((iaas))/((foundation))/config/secrets/env.yml
-        INSTANCE: errand-runner
+        INSTANCE: credhub-service-broker/first
 
 
 - name: unlock-tile
