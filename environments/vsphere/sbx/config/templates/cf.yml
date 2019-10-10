@@ -58,6 +58,8 @@ product-properties:
     value: ((cloud_controller_system_domain))
   .diego_brain.starting_container_count_maximum:
     value: ((diego_brain_starting_container_count_maximum))
+  .doppler.message_drain_buffer_size:
+    value: ((doppler_message_drain_buffer_size))
   .ha_proxy.skip_cert_verify:
     value: ((ha_proxy_skip_cert_verify))
   .mysql.cli_history:
@@ -74,8 +76,6 @@ product-properties:
     value: ((mysql_monitor_recipient_email))
   .mysql_monitor.write_read_delay:
     value: ((mysql_monitor_write_read_delay))
-  .mysql_proxy.enable_inactive_mysql_port:
-    value: ((mysql_proxy_enable_inactive_mysql_port))
   .mysql_proxy.shutdown_delay:
     value: ((mysql_proxy_shutdown_delay))
   .mysql_proxy.startup_delay:
@@ -112,6 +112,8 @@ product-properties:
     value: ((cloud_controller_completed_tasks_cutoff_age_in_days))
   .properties.cloud_controller_default_health_check_timeout:
     value: ((cloud_controller_default_health_check_timeout))
+  .properties.cloud_controller_default_stack:
+    value: default
   .properties.cloud_controller_temporary_disable_deployments:
     value: ((cloud_controller_temporary_disable_deployments))
   .properties.container_networking_interface_plugin:
@@ -134,8 +136,8 @@ product-properties:
     value: ((diego_database_max_open_connections))
   .properties.diego_log_timestamp_format:
     value: rfc3339
-  .properties.enable_garden_containerd_mode:
-    value: ((enable_garden_containerd_mode))
+  .properties.enable_cf_metric_name:
+    value: ((enable_cf_metric_name))
   .properties.enable_smb_volume_driver:
     value: ((enable_smb_volume_driver))
   .properties.enable_tls_to_internal_pxc:
@@ -144,8 +146,6 @@ product-properties:
     value: ((experimental_dynamic_egress_enforcement))
   .properties.garden_disk_cleanup:
     value: reserved
-  .properties.garden_disk_cleanup.reserved.reserved_space_for_other_jobs_in_mb:
-    value: ((garden_disk_cleanup_reserved_reserved_space_for_other_jobs_in_mb))
   .properties.gorouter_ssl_ciphers:
     value: ((gorouter_ssl_ciphers))
   .properties.haproxy_client_cert_validation:
@@ -159,8 +159,6 @@ product-properties:
     value: ((haproxy_max_buffer_size))
   .properties.haproxy_ssl_ciphers:
     value: ((haproxy_ssl_ciphers))
-  .properties.istio:
-    value: disable
   .properties.locket_database_max_open_connections:
     value: ((locket_database_max_open_connections))
   .properties.log_cache_max_per_source:
@@ -199,7 +197,7 @@ product-properties:
     value:
     - href: /marketplace
       name: Marketplace
-    - href: https://docs.pivotal.io/pivotalcf/2-6/pas/intro.html
+    - href: https://docs.pivotal.io/pivotalcf/2-4/pas/intro.html
       name: Docs
     - href: /tools
       name: Tools
@@ -245,8 +243,6 @@ product-properties:
     value: ((smtp_auth_mechanism))
   .properties.smtp_enable_starttls_auto:
     value: ((smtp_enable_starttls_auto))
-  .properties.syslog_agent_enabled:
-    value: ((syslog_agent_enabled))
   .properties.syslog_drop_debug:
     value: ((syslog_drop_debug))
   .properties.syslog_metrics_to_syslog_enabled:
@@ -263,8 +259,6 @@ product-properties:
     value: ((system_blobstore_ccpackage_max_valid_packages_stored))
   .properties.system_database:
     value: internal_pxc
-  .properties.system_metrics_enabled:
-    value: ((system_metrics_enabled))
   .properties.tcp_routing:
     selected_option: enable
     value: enable
@@ -310,6 +304,8 @@ product-properties:
     value: ((router_request_timeout_in_seconds))
   .uaa.apps_manager_access_token_lifetime:
     value: ((uaa_apps_manager_access_token_lifetime))
+  .uaa.apps_manager_refresh_token_lifetime:
+    value: ((uaa_apps_manager_refresh_token_lifetime))
   .uaa.cf_cli_access_token_lifetime:
     value: ((uaa_cf_cli_access_token_lifetime))
   .uaa.cf_cli_refresh_token_lifetime:
@@ -343,6 +339,12 @@ resource-config:
     instance_type:
       id: ((cloud_controller_worker_instance_type))
     instances: ((cloud_controller_worker_instances))
+  consul_server:
+    instance_type:
+      id: ((consul_server_instance_type))
+    instances: ((consul_server_instances))
+    persistent_disk:
+      size_mb: ((consul_server_persistent_disk_size))
   credhub:
     instance_type:
       id: ((credhub_instance_type))
@@ -367,14 +369,6 @@ resource-config:
     instance_type:
       id: ((ha_proxy_instance_type))
     instances: ((ha_proxy_instances))
-  istio_control:
-    instance_type:
-      id: ((istio_control_instance_type))
-    instances: ((istio_control_instances))
-  istio_router:
-    instance_type:
-      id: ((istio_router_instance_type))
-    instances: ((istio_router_instances))
   loggregator_trafficcontroller:
     instance_type:
       id: ((loggregator_trafficcontroller_instance_type))
@@ -403,10 +397,6 @@ resource-config:
     instances: ((nfs_server_instances))
     persistent_disk:
       size_mb: ((nfs_server_persistent_disk_size))
-  route_syncer:
-    instance_type:
-      id: ((route_syncer_instance_type))
-    instances: ((route_syncer_instances))
   router:
     instance_type:
       id: ((router_instance_type))
