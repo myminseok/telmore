@@ -1,5 +1,0 @@
----
-pivnet-api-token: ((pivnet-api-token))
-pivnet-file-glob: "*.pivotal"
-pivnet-product-slug: "pivotal_single_sign-on_service"
-product-version: "1.9.1"

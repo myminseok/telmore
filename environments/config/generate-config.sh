@@ -51,8 +51,8 @@ bosh int ${wrkdir}/product.yml ${ops_files_args[@]} > ../${iaas}/${INITIAL_FOUND
 mkdir -p ../${iaas}/${INITIAL_FOUNDATION}/config/defaults
 rm -rf ../${iaas}/${INITIAL_FOUNDATION}/config/defaults/${product}.yml
 touch ../${iaas}/${INITIAL_FOUNDATION}/config/defaults/${product}.yml
-if [ -f ${wrkdir}/product-default-vars.yml ]; then
-  cat ${wrkdir}/product-default-vars.yml >> ../${iaas}/${INITIAL_FOUNDATION}/config/defaults/${product}.yml
+if [ -f ${wrkdir}/default-vars.yml ]; then
+  cat ${wrkdir}/default-vars.yml >> ../${iaas}/${INITIAL_FOUNDATION}/config/defaults/${product}.yml
 fi
 if [ -f ${wrkdir}/errand-vars.yml ]; then
   cat ${wrkdir}/errand-vars.yml >> ../${iaas}/${INITIAL_FOUNDATION}/config/defaults/${product}.yml

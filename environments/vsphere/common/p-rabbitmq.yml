@@ -1,11 +1,11 @@
 network_name: PAS-Deployment
 
-multitenant_support/enabled/broker_operator_set_policy_enabled: false
-multitenant_support/enabled/disk_alarm_threshold: '{mem_relative,1.5}'
-multitenant_support/enabled/server_admin_credentials_identity: rabbitmq_admin
-multitenant_support/enabled/server_cluster_partition_handling: pause_minority
-multitenant_support/enabled/server_ports: 15672, 5672, 5671, 1883, 8883, 61613, 61614, 15674
-multitenant_support/enabled/server_ssl_verification_depth: 5
+multitenant_support_enabled_broker_operator_set_policy_enabled: false
+multitenant_support_enabled_disk_alarm_threshold: '{mem_relative,1.5}'
+multitenant_support_enabled_server_admin_credentials_identity: rabbitmq_admin
+multitenant_support_enabled_server_cluster_partition_handling: pause_minority
+multitenant_support_enabled_server_ports: 15672, 5672, 5671, 1883, 8883, 61613, 61614, 15674
+multitenant_support_enabled_server_ssl_verification_depth: 5
 
 on_demand_broker_plan_1_rabbitmq_az_placement:
 - pas-az1

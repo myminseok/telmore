@@ -1,38 +1,38 @@
-cf-redis-broker/redis_maxmemory: 512MB
-cf-redis-broker/service_instance_limit: 5
-large_plan_selector/active/cf_service_access: enable
-large_plan_selector/active/description: This plan provides a large dedicated Redis
+cf-redis-broker_redis_maxmemory: 512MB
+cf-redis-broker_service_instance_limit: 5
+large_plan_selector_active_cf_service_access: enable
+large_plan_selector_active_description: This plan provides a large dedicated Redis
   instance, tailored for caching use-cases with persistence to disk enabled
-large_plan_selector/active/instance_limit: 20
-large_plan_selector/active/lua_scripting: false
-large_plan_selector/active/maxclients: 10000
-large_plan_selector/active/name: cache-large
-large_plan_selector/active/tcp_keepalive: 60
-large_plan_selector/active/timeout: 3600
-medium_plan_selector/active/cf_service_access: enable
-medium_plan_selector/active/description: This plan provides a medium dedicated Redis
+large_plan_selector_active_instance_limit: 20
+large_plan_selector_active_lua_scripting: false
+large_plan_selector_active_maxclients: 10000
+large_plan_selector_active_name: cache-large
+large_plan_selector_active_tcp_keepalive: 60
+large_plan_selector_active_timeout: 3600
+medium_plan_selector_active_cf_service_access: enable
+medium_plan_selector_active_description: This plan provides a medium dedicated Redis
   instance, tailored for caching use-cases with persistence to disk enabled
-medium_plan_selector/active/instance_limit: 20
-medium_plan_selector/active/lua_scripting: false
-medium_plan_selector/active/maxclients: 5000
-medium_plan_selector/active/name: cache-medium
-medium_plan_selector/active/tcp_keepalive: 60
-medium_plan_selector/active/timeout: 3600
+medium_plan_selector_active_instance_limit: 20
+medium_plan_selector_active_lua_scripting: false
+medium_plan_selector_active_maxclients: 5000
+medium_plan_selector_active_name: cache-medium
+medium_plan_selector_active_tcp_keepalive: 60
+medium_plan_selector_active_timeout: 3600
 metrics_polling_interval: 30
-redis-on-demand-broker/maximum_parallel_upgrades: 1
-redis-on-demand-broker/service_instance_limit: 20
-redis-on-demand-broker/service_instance_sharing: false
-redis-on-demand-broker/upgrade_canary_number: 1
-small_plan_selector/active/cf_service_access: enable
-small_plan_selector/active/description: This plan provides a small dedicated Redis
+redis-on-demand-broker_maximum_parallel_upgrades: 1
+redis-on-demand-broker_service_instance_limit: 20
+redis-on-demand-broker_service_instance_sharing: false
+redis-on-demand-broker_upgrade_canary_number: 1
+small_plan_selector_active_cf_service_access: enable
+small_plan_selector_active_description: This plan provides a small dedicated Redis
   instance, tailored for caching use-cases with persistence to disk enabled
-small_plan_selector/active/instance_limit: 20
-small_plan_selector/active/lua_scripting: false
-small_plan_selector/active/maxclients: 1000
-small_plan_selector/active/name: cache-small
-small_plan_selector/active/tcp_keepalive: 60
-small_plan_selector/active/timeout: 3600
-syslog_selector/active/syslog_transport: tcp
+small_plan_selector_active_instance_limit: 20
+small_plan_selector_active_lua_scripting: false
+small_plan_selector_active_maxclients: 1000
+small_plan_selector_active_name: cache-small
+small_plan_selector_active_tcp_keepalive: 60
+small_plan_selector_active_timeout: 3600
+syslog_selector_active_syslog_transport: tcp
 broker-deregistrar_pre_delete_state: default
 broker-registrar_post_deploy_state: default
 cleanup-metadata-if-dedicated-disabled_post_deploy_state: default

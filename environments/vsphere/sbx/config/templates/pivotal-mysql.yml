@@ -47,39 +47,39 @@ product-properties:
   .properties.plan1_selector:
     value: single_node
   .properties.plan1_selector.single_node.access_dropdown:
-    value: ((plan1_selector/single_node/access_dropdown))
+    value: ((plan1_selector_single_node_access_dropdown))
   .properties.plan1_selector.single_node.az_multi_select:
-    value: ((plan1_selector/single_node/az_multi_select))
+    value: ((plan1_selector_single_node_az_multi_select))
   .properties.plan1_selector.single_node.description:
-    value: ((plan1_selector/single_node/description))
+    value: ((plan1_selector_single_node_description))
   .properties.plan1_selector.single_node.name:
-    value: ((plan1_selector/single_node/name))
+    value: ((plan1_selector_single_node_name))
   .properties.plan1_selector.single_node.paid_plan:
-    value: ((plan1_selector/single_node/paid_plan))
+    value: ((plan1_selector_single_node_paid_plan))
   .properties.plan2_selector:
     value: single_node
   .properties.plan2_selector.single_node.access_dropdown:
-    value: ((plan2_selector/single_node/access_dropdown))
+    value: ((plan2_selector_single_node_access_dropdown))
   .properties.plan2_selector.single_node.az_multi_select:
-    value: ((plan2_selector/single_node/az_multi_select))
+    value: ((plan2_selector_single_node_az_multi_select))
   .properties.plan2_selector.single_node.description:
-    value: ((plan2_selector/single_node/description))
+    value: ((plan2_selector_single_node_description))
   .properties.plan2_selector.single_node.name:
-    value: ((plan2_selector/single_node/name))
+    value: ((plan2_selector_single_node_name))
   .properties.plan2_selector.single_node.paid_plan:
-    value: ((plan2_selector/single_node/paid_plan))
+    value: ((plan2_selector_single_node_paid_plan))
   .properties.plan3_selector:
     value: single_node
   .properties.plan3_selector.single_node.access_dropdown:
-    value: ((plan3_selector/single_node/access_dropdown))
+    value: ((plan3_selector_single_node_access_dropdown))
   .properties.plan3_selector.single_node.az_multi_select:
-    value: ((plan3_selector/single_node/az_multi_select))
+    value: ((plan3_selector_single_node_az_multi_select))
   .properties.plan3_selector.single_node.description:
-    value: ((plan3_selector/single_node/description))
+    value: ((plan3_selector_single_node_description))
   .properties.plan3_selector.single_node.name:
-    value: ((plan3_selector/single_node/name))
+    value: ((plan3_selector_single_node_name))
   .properties.plan3_selector.single_node.paid_plan:
-    value: ((plan3_selector/single_node/paid_plan))
+    value: ((plan3_selector_single_node_paid_plan))
   .properties.plan4_selector:
     value: Inactive
   .properties.plan5_selector:

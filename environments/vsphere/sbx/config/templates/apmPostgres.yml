@@ -19,23 +19,23 @@ network-properties:
 product-name: apmPostgres
 product-properties:
   .errand-runner.ingestor_instance_count:
-    value: ((errand-runner/ingestor_instance_count))
+    value: ((errand-runner_ingestor_instance_count))
   .errand-runner.logs_queue_instance_count:
-    value: ((errand-runner/logs_queue_instance_count))
+    value: ((errand-runner_logs_queue_instance_count))
   .errand-runner.logs_queue_max_retention_percentage:
-    value: ((errand-runner/logs_queue_max_retention_percentage))
+    value: ((errand-runner_logs_queue_max_retention_percentage))
   .errand-runner.logs_queue_retention_percentage_interval:
-    value: ((errand-runner/logs_queue_retention_percentage_interval))
+    value: ((errand-runner_logs_queue_retention_percentage_interval))
   .errand-runner.logs_retention_window:
-    value: ((errand-runner/logs_retention_window))
+    value: ((errand-runner_logs_retention_window))
   .errand-runner.metrics_queue_instance_count:
-    value: ((errand-runner/metrics_queue_instance_count))
+    value: ((errand-runner_metrics_queue_instance_count))
   .errand-runner.metrics_retention_window:
-    value: ((errand-runner/metrics_retention_window))
+    value: ((errand-runner_metrics_retention_window))
   .errand-runner.push_apps_log_level:
-    value: ((errand-runner/push_apps_log_level))
+    value: ((errand-runner_push_apps_log_level))
   .errand-runner.server_instance_count:
-    value: ((errand-runner/server_instance_count))
+    value: ((errand-runner_server_instance_count))
 resource-config:
   errand-runner:
     instance_type:
