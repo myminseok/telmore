@@ -1167,7 +1167,7 @@ jobs:
     - aggregate:
         - get: configuration
           trigger: true
-          passed: [ Pivotal_Single_Sign-On_Service ]
+          passed: [ p-redis ]
         - get: platform-automation-image
           resource: platform-automation
           params:
@@ -1421,7 +1421,6 @@ jobs:
     - "p-healthwatch-errands"
     - "p-redis-errands"
     - "p-rabbitmq-errands"
-    - "Pivotal_Single_Sign-On_Service-errands"
     - "apmPostgres-errands"
     - "credhub-service-broker-errands"
   - get: lock
