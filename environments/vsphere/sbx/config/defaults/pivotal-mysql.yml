@@ -4,7 +4,7 @@ canary_instances: 0
 enable_lower_case_table_names: false
 enable_read_only_admin: false
 enable_secure_binding_credentials: false
-global_service_instance_limit: 50
+global_service_instance_limit: 200
 local_infile: false
 mysql_metrics_frequency: 30
 plan1_selector_single_node_access_dropdown: enable

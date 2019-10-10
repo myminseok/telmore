@@ -6,6 +6,7 @@ multitenant_support_enabled_server_admin_credentials_identity: rabbitmq_admin
 multitenant_support_enabled_server_cluster_partition_handling: pause_minority
 multitenant_support_enabled_server_ports: 15672, 5672, 5671, 1883, 8883, 61613, 61614, 15674
 multitenant_support_enabled_server_ssl_verification_depth: 5
+multitenant_support_enabled_instance_sharing: true
 
 on_demand_broker_plan_1_rabbitmq_az_placement:
 - pas-az1

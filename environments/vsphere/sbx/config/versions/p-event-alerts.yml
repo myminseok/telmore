@@ -1,5 +1,5 @@
 ---
 pivnet-api-token: ((pivnet-api-token))
 pivnet-file-glob: "*.pivotal"
-pivnet-product-slug: "pivotal-mysql"
-product-version: "2.7.0"
+pivnet-product-slug: "p-event-alerts"
+product-version: "1.2.8"
