@@ -1409,6 +1409,9 @@ jobs:
         ERRAND_NAME: deploy-all
         ENV_FILE: environments/((iaas))/((foundation))/config/secrets/env.yml
 
+# Add SCS
+# Add PCC
+# Add Event Alerts
 
 - name: unlock-tile
   serial: true
@@ -1428,6 +1431,7 @@ jobs:
     params:
       release: lock
 
+# Can't seem to get the right version of this to work
 # - name: deploy-latest-pipeline
 #   plan:
 #   - get: configuration

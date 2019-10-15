@@ -6,5 +6,6 @@ tcp_routing_enable_reservable_ports: 10000-10005
 diego_brain_instances: 1
 ha_proxy_instances: 0
 router_instances: 2
+diego_cell_instances: 6
 
 ha_proxy_skip_cert_verify: true
