@@ -110,19 +110,23 @@ resource-config:
     instance_type:
       id: ((on-demand-broker_instance_type))
     instances: ((on-demand-broker_instances))
+    max_in_flight: ((on-demand-broker_max_in_flight))
     persistent_disk:
       size_mb: ((on-demand-broker_persistent_disk_size))
   rabbitmq-broker:
     instance_type:
       id: ((rabbitmq-broker_instance_type))
     instances: ((rabbitmq-broker_instances))
+    max_in_flight: ((rabbitmq-broker_max_in_flight))
   rabbitmq-haproxy:
     instance_type:
       id: ((rabbitmq-haproxy_instance_type))
     instances: ((rabbitmq-haproxy_instances))
+    max_in_flight: ((rabbitmq-haproxy_max_in_flight))
   rabbitmq-server:
     instance_type:
       id: ((rabbitmq-server_instance_type))
     instances: ((rabbitmq-server_instances))
+    max_in_flight: ((rabbitmq-server_max_in_flight))
     persistent_disk:
       size_mb: ((rabbitmq-server_persistent_disk_size))

@@ -18,6 +18,8 @@ resource-config:
   delete-all:
     instance_type:
       id: ((delete-all_instance_type))
+    max_in_flight: ((delete-all_max_in_flight))
   deploy-all:
     instance_type:
       id: ((deploy-all_instance_type))
+    max_in_flight: ((deploy-all_max_in_flight))

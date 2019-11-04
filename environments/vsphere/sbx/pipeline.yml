@@ -1083,32 +1083,6 @@ jobs:
         ENV_FILE: environments/((iaas))/((foundation))/config/secrets/env.yml
         INSTANCE: cf-redis-broker/first
 
-    - task: cleanup-metadata-if-dedicated-disabled
-      attempts: 5
-      image: platform-automation-image
-      file: configuration/ci/tasks-proposed/run-errand.yml
-      input_mapping:
-        config: configuration
-        env: interpolated-files
-      params:
-        CONFIG_FILE: environments/((iaas))/((foundation))/config/templates/p-redis.yml
-        ERRAND_NAME: cleanup-metadata-if-dedicated-disabled
-        ENV_FILE: environments/((iaas))/((foundation))/config/secrets/env.yml
-        INSTANCE: cf-redis-broker/first
-
-    - task: deprecate-dedicated-vm-plan
-      attempts: 5
-      image: platform-automation-image
-      file: configuration/ci/tasks-proposed/run-errand.yml
-      input_mapping:
-        config: configuration
-        env: interpolated-files
-      params:
-        CONFIG_FILE: environments/((iaas))/((foundation))/config/templates/p-redis.yml
-        ERRAND_NAME: deprecate-dedicated-vm-plan
-        ENV_FILE: environments/((iaas))/((foundation))/config/secrets/env.yml
-        INSTANCE: cf-redis-broker/first
-
     - task: on-demand-broker-smoke-tests
       attempts: 5
       image: platform-automation-image

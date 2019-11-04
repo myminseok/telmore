@@ -1,0 +1,13 @@
+{"members":[ 
+    { 
+      "port":"80", 
+      "admin_state":"DISABLED", 
+      "ip_address":"192.168.1.101" 
+    }, 
+    { 
+      "port":"80", 
+      "admin_state":"GRACEFUL_DISABLED", 
+      "ip_address":"192.168.1.102" 
+    } 
+  ] 
+}
