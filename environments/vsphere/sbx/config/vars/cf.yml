@@ -3,6 +3,9 @@ cloud_controller_system_domain: run.haas-244.pez.pivotal.io
 singleton_availability_zone: pas-az1
 tcp_routing_enable_reservable_ports: 10000-10005
 
+stack_migration_acknowledgement: "X"
+tcp_routing_enable_request_timeout_in_seconds: 10
+
 diego_brain_instances: 1
 ha_proxy_instances: 0
 router_instances: 2
