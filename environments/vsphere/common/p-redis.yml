@@ -5,8 +5,6 @@ singleton_availability_zone: pas-az1
 
 # turn off those errands
 broker-registrar_post_deploy_state: off
-cleanup-metadata-if-dedicated-disabled_post_deploy_state: off
-deprecate-dedicated-vm-plan_post_deploy_state: off
 on-demand-broker-smoke-tests_post_deploy_state: off
 register-broker_post_deploy_state: off
 smoke-tests_post_deploy_state: off

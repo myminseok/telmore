@@ -3,14 +3,14 @@ errand-config:
     pre-delete-state: ((broker-deregistrar_pre_delete_state))
   broker-registrar:
     post-deploy-state: ((broker-registrar_post_deploy_state))
-  cleanup-metadata-if-dedicated-disabled:
-    post-deploy-state: ((cleanup-metadata-if-dedicated-disabled_post_deploy_state))
   delete-all-service-instances-and-deregister-broker:
     pre-delete-state: ((delete-all-service-instances-and-deregister-broker_pre_delete_state))
-  deprecate-dedicated-vm-plan:
-    post-deploy-state: ((deprecate-dedicated-vm-plan_post_deploy_state))
   on-demand-broker-smoke-tests:
     post-deploy-state: ((on-demand-broker-smoke-tests_post_deploy_state))
+  orphan-deployments:
+    post-deploy-state: ((orphan-deployments_post_deploy_state))
+  recreate-all-service-instances:
+    post-deploy-state: ((recreate-all-service-instances_post_deploy_state))
   register-broker:
     post-deploy-state: ((register-broker_post_deploy_state))
   smoke-tests:
@@ -36,24 +36,19 @@ product-properties:
     value: No Backups
   .properties.canary_org_space_selector:
     value: "No"
-  .properties.delete_dedicated_instances_multi_select:
-    value:
-    - I understand the risk
   .properties.large_plan_selector:
     selected_option: inactive
     value: Plan Inactive
   .properties.medium_plan_selector:
     value: Plan Active
-  .properties.medium_plan_selector.active.az_single_select:
-    value: ((medium_plan_selector_active_az_single_select))
+  .properties.medium_plan_selector.active.az_multi_select:
+    value: ((medium_plan_selector_active_az_multi_select))
   .properties.medium_plan_selector.active.cf_service_access:
     value: ((medium_plan_selector_active_cf_service_access))
   .properties.medium_plan_selector.active.description:
     value: ((medium_plan_selector_active_description))
   .properties.medium_plan_selector.active.instance_limit:
     value: ((medium_plan_selector_active_instance_limit))
-  .properties.medium_plan_selector.active.lua_scripting:
-    value: ((medium_plan_selector_active_lua_scripting))
   .properties.medium_plan_selector.active.maxclients:
     value: ((medium_plan_selector_active_maxclients))
   .properties.medium_plan_selector.active.name:
@@ -66,16 +61,14 @@ product-properties:
     value: ((metrics_polling_interval))
   .properties.small_plan_selector:
     value: Plan Active
-  .properties.small_plan_selector.active.az_single_select:
-    value: ((small_plan_selector_active_az_single_select))
+  .properties.small_plan_selector.active.az_multi_select:
+    value: ((small_plan_selector_active_az_multi_select))
   .properties.small_plan_selector.active.cf_service_access:
     value: ((small_plan_selector_active_cf_service_access))
   .properties.small_plan_selector.active.description:
     value: ((small_plan_selector_active_description))
   .properties.small_plan_selector.active.instance_limit:
     value: ((small_plan_selector_active_instance_limit))
-  .properties.small_plan_selector.active.lua_scripting:
-    value: ((small_plan_selector_active_lua_scripting))
   .properties.small_plan_selector.active.maxclients:
     value: ((small_plan_selector_active_maxclients))
   .properties.small_plan_selector.active.name:
@@ -91,17 +84,17 @@ product-properties:
     value: ((redis-on-demand-broker_maximum_parallel_upgrades))
   .redis-on-demand-broker.service_instance_limit:
     value: ((redis-on-demand-broker_service_instance_limit))
-  .redis-on-demand-broker.service_instance_sharing:
-    value: ((redis-on-demand-broker_service_instance_sharing))
   .redis-on-demand-broker.upgrade_canary_number:
     value: ((redis-on-demand-broker_upgrade_canary_number))
 resource-config:
   cf-redis-broker:
     instance_type:
       id: ((cf-redis-broker_instance_type))
+    max_in_flight: ((cf-redis-broker_max_in_flight))
     persistent_disk:
       size_mb: ((cf-redis-broker_persistent_disk_size))
   redis-on-demand-broker:
     instance_type:
       id: ((redis-on-demand-broker_instance_type))
     instances: ((redis-on-demand-broker_instances))
+    max_in_flight: ((redis-on-demand-broker_max_in_flight))

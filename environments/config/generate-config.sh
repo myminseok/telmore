@@ -28,7 +28,7 @@ slug=$(bosh interpolate ${versionfile} --path /pivnet-product-slug)
 
 tmpdir=tile-configs/${product}-config
 mkdir -p ${tmpdir}
-om config-template --output-directory=${tmpdir} --pivnet-api-token ${PIVNET_TOKEN} --pivnet-product-slug  ${slug} --product-version ${version} --product-file-glob ${glob}
+om config-template --output-directory=${tmpdir} --pivnet-api-token ${PIVNET_TOKEN} --pivnet-product-slug  ${slug} --product-version ${version} --pivnet-file-glob ${glob}
 wrkdir=$(find ${tmpdir}/${product} -name "${version}*")
 if [ ! -f ${wrkdir}/product.yml ]; then
   echo "Something wrong with configuration as expecting ${wrkdir}/product.yml to exist"
