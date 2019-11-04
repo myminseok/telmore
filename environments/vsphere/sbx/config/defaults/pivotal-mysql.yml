@@ -33,3 +33,4 @@ upgrade-all-service-instances_post_deploy_state: default
 validate-before-upgrade-instances_post_deploy_state: default
 dedicated-mysql-broker_instance_type: automatic
 dedicated-mysql-broker_instances: automatic
+dedicated-mysql-broker_max_in_flight: default

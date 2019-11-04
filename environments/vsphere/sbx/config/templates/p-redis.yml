@@ -80,6 +80,8 @@ product-properties:
   .properties.syslog_selector:
     selected_option: inactive
     value: "No"
+  .properties.tls_enable_selector:
+    value: Optional - Developers may configure their apps to use TLS.
   .redis-on-demand-broker.maximum_parallel_upgrades:
     value: ((redis-on-demand-broker_maximum_parallel_upgrades))
   .redis-on-demand-broker.service_instance_limit:

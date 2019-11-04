@@ -107,3 +107,4 @@ resource-config:
     instance_type:
       id: ((dedicated-mysql-broker_instance_type))
     instances: ((dedicated-mysql-broker_instances))
+    max_in_flight: ((dedicated-mysql-broker_max_in_flight))
