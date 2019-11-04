@@ -34,3 +34,5 @@ service_network_cidr: 192.168.3.0/24
 service_network_gateway: 192.168.3.1
 service_network_reserved_ip_range: 192.168.3.1-192.168.3.10
 service_network_dns: 10.192.2.10,10.192.2.11
+
+director_disk_size_mb: 204800
