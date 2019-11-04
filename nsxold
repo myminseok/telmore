@@ -1,0 +1,14 @@
+curl -k -v -u 'admin:oUB74nI8p5yuKcGRrS!' -X POST https://nsxmgr-01.haas-244.pez.pivotal.io/api/v1/loadbalancer/pools/f483cce7-b657-4a5e-a07f-2428e942f14a?action=ADD_MEMBERS 
+'{"members":[ 
+    { 
+      "port":"80", 
+      "admin_state":"DISABLED", 
+      "ip_address":"192.168.1.101" 
+    }, 
+    { 
+      "port":"80", 
+      "admin_state":"GRACEFUL_DISABLED", 
+      "ip_address":"192.168.1.102" 
+    } 
+  ] 
+}'
