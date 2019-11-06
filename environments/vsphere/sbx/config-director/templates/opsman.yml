@@ -14,7 +14,7 @@ opsman-configuration:
     private_ip: ((opsman_private_ip))
     dns: ((dns))
     ntp: ((ntp))                     # example: ntp.ubuntu.com
-    ssh_password: ((opsman_ssh_password))
+#     ssh_password: ((opsman_ssh_password))
     ssh_public_key: ((opsman_ssh_public_key))
     hostname: ((opsman_host))
     network: ((network_name))                 # vcenter network to deploy to
