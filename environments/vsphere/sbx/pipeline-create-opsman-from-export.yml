@@ -17,12 +17,12 @@ resources:
     api_token: ((pivnet_token))
     product_slug: platform-automation
 
-# - name: installation
-#   type: gcs-resource
-#   source:
-#     bucket: telmore-vsphere-opsman-exports
-#     json_key: ((opsman_export_cloud_storage_key))
-#     regexp: ((foundation))/installation-(.*).zip
+- name: installation
+  type: gcs-resource
+  source:
+    bucket: telmore-vsphere-opsman-exports
+    json_key: ((opsman_export_cloud_storage_key))
+    regexp: ((foundation))/installation-(.*).zip
 
 - name: state
   type: git
@@ -151,58 +151,22 @@ jobs:
             repository: state-commit
             merge: true
 
-
   # Import installation
-
-
+  - task: import-installation
+    image: platform-automation-image
+    file: platform-automation-tasks/tasks/import-installation.yml
+    input_mapping:
+      env: interpolated-files
+      installation: installation
+    params:
+      INSTALLATION_FILE: installation
+      ENV_FILE: environments/((iaas))/((foundation))/config-director/secrets/env.yml
 
   # Apply Change to Director
-  # - task: apply-director-changes
-  #   image: platform-automation-image
-  #   file: platform-automation-tasks/tasks/apply-director-changes.yml
-  #   input_mapping:
-  #     env: interpolated-files
-  #   params:
-  #     ENV_FILE: environments/((iaas))/((foundation))/config-director/secrets/env.yml
-
-
-
-
-
-
-
-# - name: export-installation
-#   plan:
-#   - aggregate:
-#     - get: director-configuration
-#       trigger: true
-#       passed: [ install-opsman ]
-#     - get: platform-automation-image
-#       resource: platform-automation
-#       params:
-#         unpack: true
-#         globs: ["*image*"]
-#     - get: platform-automation-tasks
-#       resource: platform-automation
-#       params:
-#         unpack: true
-#         globs: ["*tasks*"]
-
-#   - task: credhub-interpolate
-#     image: platform-automation-image
-#     file: platform-automation-tasks/tasks/credhub-interpolate.yml
-#     params: *director_credhub_interpolate_params
-#     input_mapping:
-#       files: director-configuration
-
-#   - task: export-installation
-#     image: platform-automation-image
-#     file: platform-automation-tasks/tasks/export-installation.yml
-#     input_mapping:
-#       env: interpolated-files
-#     params:
-#       ENV_FILE: environments/((iaas))/((foundation))/config-director/secrets/env.yml
-#   - put: installation
-#     params:
-#       file: installation/installation-*.zip
-
+  - task: apply-director-changes
+    image: platform-automation-image
+    file: platform-automation-tasks/tasks/apply-director-changes.yml
+    input_mapping:
+      env: interpolated-files
+    params:
+      ENV_FILE: environments/((iaas))/((foundation))/config-director/secrets/env.yml
