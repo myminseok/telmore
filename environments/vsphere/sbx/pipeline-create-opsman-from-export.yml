@@ -79,6 +79,7 @@ jobs:
       trigger: true
       passed: ["validate-director-configuration"]
     - get: state
+    - get: installation
     - get: platform-automation-image
       resource: platform-automation
       params:
