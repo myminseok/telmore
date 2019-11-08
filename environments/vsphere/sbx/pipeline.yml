@@ -1748,7 +1748,6 @@ jobs:
         ENV_FILE: environments/((iaas))/((foundation))/config/secrets/env.yml
         
 
-
 - name: unlock-tile
   serial: true    - task: smoke-tests
       attempts: 5
@@ -1776,6 +1775,7 @@ jobs:
     - "credhub-service-broker-errands"
     - "pivotal_single_sign-on_service-errands"
     - "p-event-alerts-errands"
+    - "p-cloudcache-errands"
   - get: lock
   - put: lock
     params:
