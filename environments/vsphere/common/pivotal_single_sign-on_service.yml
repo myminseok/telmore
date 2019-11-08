@@ -1,3 +1,2 @@
 ---
-
-deploy-service-broker_post_deploy_state: default
+deploy-service-broker_post_deploy_state: off

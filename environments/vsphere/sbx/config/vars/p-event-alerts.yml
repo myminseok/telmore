@@ -5,5 +5,3 @@ singleton_availability_zone:  pas-az1
 smtp_selector_enabled_smtp_address: in-v3.mailjet.com
 smtp_selector_enabled_smtp_from: noreply@healthwatch.com
 smtp_selector_enabled_smtp_port: 25
-
-deploy-pcf-event-alerts_post_deploy_state: false

@@ -417,6 +417,23 @@ jobs:
       ENV_FILE: environments/((iaas))/((foundation))/config/secrets/env.yml
       VARS_FILES: secrets/environments/((iaas))/((foundation))/config/secrets/pivnet.yml
 
+  - task: configure-nsx
+    image: platform-automation-image
+    file: platform-automation-tasks/tasks/configure-product.yml
+    input_mapping:
+      config: configuration
+      env: interpolated-files
+      vars: configuration
+      secrets: interpolated-files
+    params:
+      CONFIG_FILE: environments/((iaas))/((foundation))/config/templates/vmware-nsx-t.yml
+      VARS_FILES: |
+        vars/environments/((iaas))/((foundation))/config/defaults/vmware-nsx-t.yml
+        vars/environments/((iaas))/common/vmware-nsx-t.yml
+        vars/environments/((iaas))/((foundation))/config/vars/vmware-nsx-t.yml
+        secrets/environments/((iaas))/((foundation))/config/secrets/vmware-nsx-t.yml
+      ENV_FILE: environments/((iaas))/((foundation))/config/secrets/env.yml
+
   - task: configure
     image: platform-automation-image
     file: platform-automation-tasks/tasks/configure-product.yml
@@ -432,6 +449,17 @@ jobs:
         vars/environments/((iaas))/common/cf.yml
         vars/environments/((iaas))/((foundation))/config/vars/cf.yml
         secrets/environments/((iaas))/((foundation))/config/secrets/cf.yml
+      ENV_FILE: environments/((iaas))/((foundation))/config/secrets/env.yml
+
+  - task: apply-product-changes-nsx-t
+    image: platform-automation-image
+    file: configuration/ci/tasks-proposed/apply-product-changes.yml
+    attempts: 10
+    input_mapping:
+      config: configuration
+      env: interpolated-files
+    params:
+      CONFIG_FILE: environments/((iaas))/((foundation))/config/templates/vmware-nsx-t.yml
       ENV_FILE: environments/((iaas))/((foundation))/config/secrets/env.yml
 
   - task: apply-product-changes

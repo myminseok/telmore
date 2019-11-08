@@ -5,7 +5,3 @@ plan1_enable_service_plan_enable_service_instance_azs: pas-az1
 service_network_name: PAS-Services
 singleton_availability_zone: pas-az1
 small_footprint_enable_service_plan_enable_service_instance_azs: pas-az1
-
-register-broker_post_deploy_state: false
-smoke-tests_post_deploy_state: false
-upgrade-all-service-instances_post_deploy_state: false
