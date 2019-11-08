@@ -1746,22 +1746,10 @@ jobs:
         CONFIG_FILE: environments/((iaas))/((foundation))/config/templates/p-cloudcache.yml
         ERRAND_NAME: upgrade-all-service-instances
         ENV_FILE: environments/((iaas))/((foundation))/config/secrets/env.yml
-        
+
 
 - name: unlock-tile
-  serial: true    - task: smoke-tests
-      attempts: 5
-      image: platform-automation-image
-      file: configuration/ci/tasks-proposed/run-errand.yml
-      input_mapping:
-        config: configuration
-        env: interpolated-files
-      params:
-        CONFIG_FILE: environments/((iaas))/((foundation))/config/templates/p-cloudcache.yml
-        ERRAND_NAME: smoke-tests
-        ENV_FILE: environments/((iaas))/((foundation))/config/secrets/env.yml
-        
-
+  serial: true
   plan:
   - get: configuration
     trigger: true
