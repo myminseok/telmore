@@ -8,6 +8,8 @@ network-properties:
     name: ((network_name))
   other_availability_zones:
   - name: ((singleton_availability_zone))
+  - name: ((az2_name))
+  - name: ((az3_name))
   singleton_availability_zone:
     name: ((singleton_availability_zone))
 product-name: p_spring-cloud-services
@@ -23,5 +25,6 @@ resource-config:
     instance_type:
       id: ((spring-cloud-services_instance_type))
     instances: ((spring-cloud-services_instances))
+    max_in_flight: ((spring-cloud-services_max_in_flight))
     persistent_disk:
       size_mb: ((spring-cloud-services_persistent_disk_size))
