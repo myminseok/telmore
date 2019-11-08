@@ -402,6 +402,20 @@ jobs:
     input_mapping:
       files: configuration
 
+  - task: download-stage-tile-stemcell-nsx-t
+    image: platform-automation-image
+    file: configuration/ci/tasks-proposed/download-stage-tile-stemcell.yml
+    input_mapping:
+      config: configuration
+      download-config: configuration
+      env: interpolated-files
+      secrets: interpolated-files
+    params:
+      DOWNLOAD_CONFIG_FILE: environments/((iaas))/((foundation))/config/versions/vmware-nsx-t.yml
+      CONFIG_FILE: environments/((iaas))/((foundation))/config/templates/vmware-nsx-t.yml
+      ENV_FILE: environments/((iaas))/((foundation))/config/secrets/env.yml
+      VARS_FILES: secrets/environments/((iaas))/((foundation))/config/secrets/pivnet.yml
+
   - task: download-stage-tile-stemcell
     image: platform-automation-image
     file: configuration/ci/tasks-proposed/download-stage-tile-stemcell.yml
