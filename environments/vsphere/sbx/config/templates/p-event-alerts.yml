@@ -24,6 +24,10 @@ product-properties:
     value: Enabled
   .properties.smtp_selector.enabled.smtp_address:
     value: ((smtp_selector_enabled_smtp_address))
+  .properties.smtp_selector.enabled.smtp_credentials:
+    value:
+      identity: ((smtp_selector_enabled_smtp_credentials_identity))
+      password: ((smtp_selector_enabled_smtp_credentials_password))
   .properties.smtp_selector.enabled.smtp_from:
     value: ((smtp_selector_enabled_smtp_from))
   .properties.smtp_selector.enabled.smtp_insecure_skip_verify:
@@ -36,6 +40,8 @@ resource-config:
   deploy-pcf-event-alerts:
     instance_type:
       id: ((deploy-pcf-event-alerts_instance_type))
+    max_in_flight: ((deploy-pcf-event-alerts_max_in_flight))
   destroy-pcf-event-alerts:
     instance_type:
       id: ((destroy-pcf-event-alerts_instance_type))
+    max_in_flight: ((destroy-pcf-event-alerts_max_in_flight))

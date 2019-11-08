@@ -50,17 +50,20 @@ resource-config:
     instance_type:
       id: ((healthwatch-forwarder_instance_type))
     instances: ((healthwatch-forwarder_instances))
+    max_in_flight: ((healthwatch-forwarder_max_in_flight))
     persistent_disk:
       size_mb: ((healthwatch-forwarder_persistent_disk_size))
   mysql:
     instance_type:
       id: ((mysql_instance_type))
     instances: ((mysql_instances))
+    max_in_flight: ((mysql_max_in_flight))
     persistent_disk:
       size_mb: ((mysql_persistent_disk_size))
   redis:
     instance_type:
       id: ((redis_instance_type))
     instances: ((redis_instances))
+    max_in_flight: ((redis_max_in_flight))
     persistent_disk:
       size_mb: ((redis_persistent_disk_size))

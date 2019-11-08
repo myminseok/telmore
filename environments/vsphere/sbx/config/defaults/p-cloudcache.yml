@@ -53,4 +53,5 @@ register-broker_post_deploy_state: default
 smoke-tests_post_deploy_state: default
 upgrade-all-service-instances_post_deploy_state: default
 cloudcache-broker_instance_type: automatic
+cloudcache-broker_max_in_flight: default
 cloudcache-broker_persistent_disk_size: automatic
