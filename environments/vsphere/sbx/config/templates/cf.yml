@@ -225,6 +225,8 @@ product-properties:
     value: enable
   .properties.router_prune_all_stale_routes:
     value: ((router_prune_all_stale_routes))
+  .properties.routing_custom_ca_certificates:
+    value: ((routing_custom_ca_certificates))
   .properties.routing_disable_http:
     value: ((routing_disable_http))
   .properties.routing_log_client_ips:
