@@ -19,3 +19,21 @@ docker run -it \
         --state-file /workspace/opsman-state.yml \
         --vars-file /secrets/output.json \
         --vars-file /secrets/creds.yml
+
+
+
+# This was the original
+# docker run -it -v $HOME/workspace/afc_terraforming:/workspace platform-automation-image \
+#     p-automator create-vm \
+#         --config "/workspace/opsman_creation/sandbox/ops-manager.yml" \
+#         --image-file "/workspace/opsman_creation/ops-manager-azure-2.8.2-build.203.yml"  \
+#         --state-file /workspace/secrets/sandbox/opsman-state.yml \
+#         --vars-file /workspace/secrets/sandbox/output.json \
+#         --vars-file /workspace/secrets/sandbox/creds.yml
+        
+# Use this to just start the platform-automation image 
+# docker run -it \
+#     -v "${workspace}":/workspace \
+#     -v "${secrets_folder}":/secrets \
+#     cloudfoundry/platform-automation:4.3.2 \
+#     bin/bash
