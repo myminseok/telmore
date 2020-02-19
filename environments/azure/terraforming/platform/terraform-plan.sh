@@ -21,7 +21,7 @@ mkdir -p ${terraform_target_dir}
 cp -R ${terraform_source_dir}/ ${terraform_target_dir}
 
 # Copy any additional terraform not included in the paving repo
-# cp $PWD/optional_terraform/azure/*.tf ${terraform_target_dir}
+# cp $PWD/optional_terraform/*.tf ${terraform_target_dir}
 
 # Copy the provider_override in order to save state to azure blob store
 # cp ${secrets_folder}/provider_override.tf ${terraform_target_dir}
