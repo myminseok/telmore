@@ -22,9 +22,10 @@ docker run -it \
         --config "/workspace/ops-manager.yml" \
         --image-file "/workspace/ops-manager-azure-2.8.2-build.203.yml"  \
         --state-file /workspace/opsman-state.yml \
-        --vars-file /secrets/output.json \
-        --vars-file /secrets/creds.yml
+        --vars-file /secrets/output.json
 
+
+#        --vars-file /secrets/creds.yml
 
 
 # This was the original
