@@ -1,13 +1,18 @@
 #!/bin/bash 
 
-set -eux
+set -e
 
-# TODO: Use a variable for the foundation name.
-#pivnet download opsmanager
-foundation="sbx"
+# TODO: pivnet download opsmanager
+
+if [ "$#" -lt 1 ]; then
+  echo "usage: `basename "$0"` [environment name]"
+  exit 1
+fi
+
+foundation=$1
 
 secrets_folder=/Volumes/Keybase/private/tonyelmore/dev/telmore/environments/azure/terraforming/secrets/${foundation}
-workspace=${PWD}/${foundation}
+workspace=${PWD}/opsman_creation/${foundation}
 
 docker run -it \
     -v "${workspace}":/workspace \
