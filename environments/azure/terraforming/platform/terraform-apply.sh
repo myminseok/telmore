@@ -15,4 +15,6 @@ terraform_target_dir=$PWD/targets/${foundation}_terraform_target
 pushd "${terraform_target_dir}"
 terraform apply \
   "${@:2}" "${secrets_folder}"/terraform.plan
+
+terraform output -json stable_config | jq -r . | jq . > ${secrets_folder}/output.json
 popd
